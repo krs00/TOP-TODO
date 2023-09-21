@@ -80,19 +80,19 @@ body {
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #ffa200;
-  background-color: #2a4482;
+  color: #2a4482;
+  background-color: #7c9eec;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 10px #999;
+  box-shadow: 0 10px #2a4482;
   letter-spacing: 2px;
 }
 
-.sidebar-btn:hover {background-color: #3e8e41}
+.sidebar-btn:hover {background-color: #a7c2ff;}
 
 .sidebar-btn:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+  background-color: #a7c2ff;
+  box-shadow: 0 5px #2a4482;
   transform: translateY(4px);
 }
 
