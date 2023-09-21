@@ -1,1 +1,71 @@
-@import url("reset.css"); 
+@import url("reset.css");
+
+body {
+  font-family: "Helvetica";
+  background: repeating-conic-gradient(#81d891 0% 25%, #68a8d8 0% 50%) 50% /
+    20px 20px;
+  background-size: 50px 50px;
+  background-position: 0 0, 50px 50px;
+  animation: slideAnimation 12s linear infinite;
+  z-index: 1;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes slideAnimation {
+  0% {
+    background-position: 0 0, 50px 50px;
+  }
+  100% {
+    background-position: 100px 100px, 150px 150px;
+  }
+}
+
+#todo-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#todo-body {
+  display: grid;
+  grid-template-columns: 30% 1fr; /* Two columns: 200px wide sidebar and 1 fraction for content */
+  grid-template-rows: 20% 1fr;
+  grid-template-areas: 
+      "header header"
+      "sidebar content"; 
+  height: 850px;
+  width: 1300px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+}
+
+#todo-header {
+  grid-area: header;
+  border-radius: 5px 5px 0 0;
+  height: 100%;
+  width: 100%;
+  background-color: #2a4482;
+  display: flex;
+  align-items: center;
+}
+
+#header-text {
+  font-style: italic;
+  margin-left: 30px;
+  font-size: 60px;
+  color: #ffa200;
+  user-select: none;
+}
+
+#todo-sidebar {
+  grid-area: sidebar;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+} 
+
+
+
