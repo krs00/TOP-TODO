@@ -6,7 +6,7 @@ body {
     20px 20px;
   background-size: 50px 50px;
   background-position: 0 0, 50px 50px;
-  animation: slideAnimation 12s linear infinite;
+  animation: slideAnimation 15s linear infinite;
   z-index: 1;
   height: 100vh;
   overflow: hidden;
