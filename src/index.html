@@ -1,62 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="./public/ness.png" /> -->
+    <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.cdnfonts.com/css/helvetica-neue-55"
+      rel="stylesheet"
+    />
+    <script type="module" src="/index.js"></script>
+    <title>TODO</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <!-- <link rel="icon" type="image/svg+xml" href="./public/ness.png" /> -->
-  <link rel="stylesheet" type="text/css" href="./styles/main.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet" />
-  <script type="module" src="/index.js"></script>
-  <title>TODO</title>
-</head>
-
-<body>
-
-  <div id="add-project-modal">
-    
-    <div id="add-project-body">
-
-      <div class="popup-header">
-        <p class="popup-header-title">*ੈ✩‧₊˚  add a project! ஃ</p>
-      </div>
-
-      <label class="dblock popup-text">project name ↶*ೃ✧˚. ❃ ↷</label>
-      <input class="dblock popup-input">
-
-      <label class="dblock popup-text">project description *. * ·</label>
-      <input class="dblock popup-input">
-
-      <button id="close-project-btn" class="popup-btn">Cancel</button>
-      <button id="submit-project-btn" class="popup-btn">Submit</button>
-
-    </div>
-
-  </div>
-
-
-  <div id="overlay" class="overlay"></div>
-
-
-
-  <!-- TODO MODAL SECTION -->
-  <div id="todo-container">
-    <div id="todo-body">
-      <div id="todo-header">
-        <h1 id="header-text">.•*•.•*•. to-do ஃ </h1>
-      </div>
-      <div id="todo-sidebar">
-
-        <div id="sidebar-wrapper">
-          <button id="view-projects-btn" class="sidebar-btn">◔̯ all Projects</button>
-          <button id="add-project-btn" class="sidebar-btn">+ add Project</button>
+  <body>
+    <div id="add-project-modal">
+      <div id="add-project-body">
+        <div class="popup-header">
+          <p class="popup-header-title">*ੈ✩‧₊˚ add a project! ஃ</p>
         </div>
-       
+
+
+        <div class="modal-content"> 
+
+        <label class="dblock popup-text center-text">project name ↶*ೃ✧˚. ❃ ↷</label>
+        <div class="center-input">
+        <input class="dblock popup-input" />
+        </div>  
+
+        <label class="dblock popup-text center-text">project description *. * ·</label>
+        <div class="center-input">
+        <input class="dblock popup-input" />
+        </div> 
+
+        <div class="popup-btn-section">
+          <button id="close-project-btn" class="popup-btn">Cancel</button>
+          <button id="submit-project-btn" class="popup-btn">Submit</button>
+        </div>
+
+        </div>
 
       </div>
-      <div id="todo-content"></div>
     </div>
-  </div>
-</body>
 
+    <div id="overlay" class="overlay"></div>
+
+    <!-- TODO MODAL SECTION -->
+    <div id="todo-container">
+      <div id="todo-body">
+        <div id="todo-header">
+          <h1 id="header-text">.•*•.•*•. to-do ஃ</h1>
+        </div>
+        <div id="todo-sidebar">
+          <div id="sidebar-wrapper">
+            <button id="view-projects-btn" class="sidebar-btn">
+              ◔̯ all Projects
+            </button>
+            <button id="add-project-btn" class="sidebar-btn">
+              + add Project
+            </button>
+          </div>
+        </div>
+        <div id="todo-content"></div>
+      </div>
+    </div>
+  </body>
 </html>
