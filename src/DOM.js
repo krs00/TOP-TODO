@@ -1,4 +1,4 @@
-// EXPORTED FUNCTIONS
+import { newProjectComponent } from "./modules/projectComponent"
 
 
 
@@ -9,8 +9,18 @@ export function openProjectModal() {
 
 export function closeProjectModal() {
   closeOverlay()
-  closeProjectPopup()
   clearPopupInputs()
+  closeProjectPopup()
+}
+
+export function submitProjectModal() {
+  const projectName = document.querySelector('#project-name-input').value
+  const projectDescription = document.querySelector('#project-description-input').value 
+
+  newProjectComponent(projectName)
+ 
+  closeProjectModal()
+
 }
 
 // UTILITY DOM FUNCTIONS
@@ -37,7 +47,7 @@ function closeOverlay() {
 
 function clearPopupInputs() {
   const popupInputs = document.querySelectorAll('.popup-input-select')
-
+ 
   for (let i = 0; i < popupInputs.length; i++) {
     const input = popupInputs[i]
     input.value = ""
