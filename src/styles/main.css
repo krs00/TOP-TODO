@@ -193,12 +193,14 @@ body {
   user-select: none;
 }
 
+
 .popup-input {
   border-style: none;
   border-radius: 20px;
   font-size: 30px;
   background-color: #facff0;
   width: 400px;
+  padding: 5px;
 }
 
 .popup-input:focus {
@@ -216,7 +218,7 @@ body {
 .popup-btn-section {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 
