@@ -1,4 +1,6 @@
 import { newProjectComponent } from "./modules/projectComponent"
+import { newProject } from "./modules/newProject"
+import { addProjectData, getNewProjectId } from "./modules/projectManager"
 
 
 
@@ -15,10 +17,10 @@ export function closeProjectModal() {
 
 export function submitProjectModal() {
   const projectName = document.querySelector('#project-name-input').value
-  const projectDescription = document.querySelector('#project-description-input').value 
+  const projectDescription = document.querySelector('#project-description-input').value
 
-  newProjectComponent(projectName)
- 
+  createNewProject(projectName, projectDescription)
+
   closeProjectModal()
 
 }
@@ -52,5 +54,13 @@ function clearPopupInputs() {
     const input = popupInputs[i]
     input.value = ""
   }
+}
+
+function createNewProject(projectName, projectDescription) {
+  const newproject = newProject(getNewProjectId(), projectName, projectDescription)
+
+  newProjectComponent(getNewProjectId(), projectName)
+
+  addProjectData(newproject)
 }
 
