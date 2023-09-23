@@ -1,4 +1,4 @@
-export const newTask = (id, title, description, projectName, dueDate, isDone = false) => {
+export const newTask = (id, title, description, projectId, dueDate, isDone = false) => {
     
-  return {id, title, description, projectName, dueDate, isDone}
+  return {id, title, description, projectId, dueDate, isDone}
 }
