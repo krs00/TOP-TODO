@@ -1,10 +1,11 @@
 const projectManager = {
-  projectIdAssign: 0,
+  projectId: 0,
   objects: []
 }
 
 export const addProjectData = (project) => {
   projectManager.objects.push(project);
+  increaseProjectIdCount()
 };
 
 export const removeProjectData = (projectid) => {
@@ -18,6 +19,11 @@ export const getAllProjectsData = () => {
   return projectManager.objects; 
 };
 
-export const getProjectsId = () => {
-  return projectManager.objects; 
-}; 
+export const getNewProjectId = () => {
+  return projectManager.projectId; 
+};
+
+const increaseProjectIdCount = () => {
+  projectManager.projectId++
+};
+
