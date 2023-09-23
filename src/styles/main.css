@@ -110,15 +110,10 @@ body {
 
 
 
-
-
-
-
 /* POP UP MODAL SECTION */
 
-
 .overlay {
-  /* display: none; */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -129,7 +124,7 @@ body {
 }
 
 #add-project-modal {
-  /* display: none;  */
+  display: none; 
   position: fixed;
   top: 50%;
   left: 50%;
@@ -161,7 +156,6 @@ body {
   font-style: italic;
   margin-left: 20px;
 }
-
 
 .popup-btn {
   font-size: 25px;
@@ -205,6 +199,11 @@ body {
   font-size: 30px;
   background-color: #facff0;
   width: 400px;
+}
+
+.popup-input:focus {
+  outline: none;
+  
 }
 
 .modal-content {
