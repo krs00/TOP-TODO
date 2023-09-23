@@ -15,7 +15,7 @@
 ## Description
 
 A simple To-do list application made from scratch with vanilla HTML, CSS, and JavaScript!
-This project was created to practice CRUD functionality and OOP principles for [The Odin Project](https://www.theodinproject.com/) 
+This project was created to practice CRUD functionality and OOP principles for [The Odin Project](https://www.theodinproject.com/).
 
 ## Setup/Installation Requirements
  
