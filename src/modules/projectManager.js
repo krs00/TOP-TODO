@@ -1,6 +1,8 @@
 const projectManager = {
   projectId: 0,
-  objects: []
+  objects: [],
+  currentId: null,
+  currentProject: null
 }
 
 export const addProjectData = (project) => {
@@ -26,4 +28,15 @@ export const getNewProjectId = () => {
 const increaseProjectIdCount = () => {
   projectManager.projectId++
 };
+
+export const getCurrentSelectedProjectId = () => {
+  return projectManager.currentId
+}
+
+export const updateCurrentProjectId = (id) => {
+  projectManager.currentId = id
+};
+
+
+
 
