@@ -1,4 +1,4 @@
-export const projectFactory = (id, title, description, tasks = []) => {
+export const projectFactory = (id, title, description) => {
 
-  return {id, title, description, tasks}
+  return {id, title, description}
 }
