@@ -11,7 +11,6 @@ export function projectBox(id, projectName) {
 
   div.classList.add('sidebar-task-btn')
 
-  // div.addEventListener('click', () => {alert("You Clicked!")})
 
   const container = document.querySelector('#new-projects-container')
   container.appendChild(div)
