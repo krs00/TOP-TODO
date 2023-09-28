@@ -70,6 +70,7 @@ body {
   background-color: #4976d1;
   border-radius: 0px 0px 0 5px;
   padding: 25px;
+  padding-top: 20px;
 }
 
 .sidebar-btn {
@@ -97,14 +98,88 @@ body {
   transform: translateY(4px);
 }
 
+.sidebar-task-btn {
+  font-size: 20px;
+  width: 100%;
+  display: inline-block;
+  padding: 15px 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #2a4482;
+  background-color: #7c9eec;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 10px #2a4482;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  user-select: none;
+}
+
+.sidebar-task-btn:hover {background-color: #a7c2ff;}
+
+.sidebar-task-btn:active {
+  background-color: #a7c2ff;
+  box-shadow: 0 5px #2a4482;
+  transform: translateY(4px);
+}
+
+#view-projects-btn {
+  margin-bottom: 20px;
+}
+
 #add-project-btn {
-  margin-top: 35px;
+  margin-top: 15px;
 }
 
 #todo-content {
   border-radius: 0 0 5px 0;
   background-color: #facff0;
- 
+  padding-left: 40px;
+  padding-right: 50px;
+  padding-top: 15px;
+}
+
+#content-project-name {
+  font-size: 45px;
+  user-select: none;
+  letter-spacing: 2px;
+  color: #2a4482;
+}
+
+#content-project-description {
+  font-size: 25px;
+  user-select: none;
+  letter-spacing: 2px;
+  color: #2a4482;
+}
+
+#new-task-btn {
+  font-size: 20px;
+  width: 160px;
+  display: inline-block;
+  padding: 10px 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #1b5c2c;
+  background-color: #81d891;
+  border: none;
+  border-radius: 25px; 
+  box-shadow: 0 10px #1b5c2c;
+  letter-spacing: 3px;
+  margin-top: 15px;
+  user-select: none;
+}
+
+#new-task-btn:hover {background-color: #80ed93;}
+
+#new-task-btn:active {
+  background-color: #80ed93;
+  box-shadow: 0 5px #1b5c2c;
+  transform: translateY(4px);
 }
 
 
