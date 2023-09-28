@@ -1,5 +1,5 @@
 import { projectFactory } from "./modules/utils/projectFactory"
-import { addNewProject, getNewProjectId, getProjectArray } from "./modules/utils/projectManager"
+import { addNewProject, getCurrentProject, getNewProjectId, getProjectArray } from "./modules/utils/projectManager"
 import { projectBox } from "./modules/components/projectBox"
 
 function openOverlay() {
@@ -40,17 +40,15 @@ export function submitProjectModal() {
   const projectName = document.querySelector('#project-name-input').value
   const projectDescription = document.querySelector('#project-description-input').value
 
-  console.log(projectName)
-  console.log(projectDescription)
-
+  // console.log(projectName)
+  // console.log(projectDescription)
   const newId = getNewProjectId()
 
   const newProject = projectFactory(newId, projectName, projectDescription)
   projectBox(newId, projectName)
   addNewProject(newProject) 
 
-
-  console.log(getProjectArray())
+  console.log(getProjectArray()) 
 
   clearProjectModalInputs()
   closeProjectModal() 
@@ -58,6 +56,17 @@ export function submitProjectModal() {
 }
 
 // PROJECT MODAL FUNCTIONS END
+
+
+// MAIN CONTENT FUNCTIONS
+
+export function updateMainHeader(obj) {
+  const title = document.querySelector('#content-project-name')
+  const desc = document.querySelector('#content-project-description')
+
+  title.innerText = obj.title
+  desc.innerText = obj.description
+}
 
 
 

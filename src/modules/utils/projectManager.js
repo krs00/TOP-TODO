@@ -1,7 +1,7 @@
 const projectManager = {
   projectIdCounter: 0,
   projectArray: [],
-  currentProject: null,
+  currentProject: null
 };
 
 export const getProjectArray = () => {
@@ -52,11 +52,9 @@ export const updateCurrentProject = (id) => {
 
   for (let i = 0; i < array.length; i++) {
 
-    const project = array[i]
+    if (array[i].id == id) {
 
-    if (project.id === id) {
-
-      projectManager.currentProject = project
+      projectManager.currentProject = array[i]
     }
   }
 }
