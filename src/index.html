@@ -14,6 +14,53 @@
   </head>
 
   <body>
+
+    <!-- TASK POPUP -->
+
+    <div id="add-task-modal">
+      <div id="add-task-body">
+        <div class="popup-header">
+          <p class="popup-header-title">*✩‧₊˚ add a task! ✩ஃ</p>
+        </div>
+
+
+        <div class="modal-content"> 
+
+        <label class="dblock popup-text center-text">task name ↶*ೃ✧˚. ❃ ↷</label>
+        <div class="center-input">
+        <input id="task-name-input" class="dblock popup-input popup-input-select" />
+        </div>  
+
+        <label class="dblock popup-text center-text">task description *. * ·</label>
+        <div class="center-input">
+        <input id="task-description-input" class="dblock popup-input popup-input-select" />
+        </div>
+
+        <label class="dblock popup-text center-text"> ✧ due Date ✧</label>
+        <div class="center-input">
+        <input type="date" id="task-date-input" class="dblock popup-input popup-input-select" />
+        </div>
+
+        
+
+        <div class="popup-btn-section-task">
+          <button id="close-task-btn" class="popup-btn">Cancel</button>
+          <button id="submit-task-btn" class="popup-btn">Submit</button>
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- END TASK POPUP -->
+
+  
+
+
+
+
+    <!-- PROJECT POPUP -->
     <div id="add-project-modal">
       <div id="add-project-body">
         <div class="popup-header">
@@ -42,6 +89,7 @@
 
       </div>
     </div>
+    <!-- END PROJECT POPUP -->
 
     <div id="overlay" class="overlay"></div>
 
@@ -66,14 +114,14 @@
         </div>
         <div id="todo-content">
 
-          <h2 id="content-project-name">Project Name!</h2>
-          <h3 id="content-project-description">Project Description!</h3> 
+          <h2 id="content-project-name">All Tasks</h2>
+          <h3 id="content-project-description"></h3> 
 
           <div id="task-list">
 
           </div>
 
-          <button id="new-task-btn">+ new Task</button>
+          <button id="add-task-btn">+ new Task</button>
 
         </div>
       </div>
