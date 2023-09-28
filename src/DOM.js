@@ -13,6 +13,8 @@ function closeOverlay() {
 }
 
 
+// PROJECT MODAL FUNCIONS
+
 export function openProjectModal() {
   openOverlay()
   const modal = document.querySelector('#add-project-modal')
@@ -54,6 +56,10 @@ export function submitProjectModal() {
   closeProjectModal() 
 
 }
+
+// PROJECT MODAL FUNCTIONS END
+
+
 
 
 
