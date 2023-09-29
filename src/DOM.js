@@ -23,6 +23,7 @@ export function openProjectModal() {
 
 export function closeProjectModal() {
   closeOverlay()
+  clearProjectModalInputs()
   const modal = document.querySelector('#add-project-modal')
   modal.style.display = 'none'
 }
@@ -57,9 +58,29 @@ export function submitProjectModal() {
 
 // PROJECT MODAL FUNCTIONS END
 
+// TASK MODAL FUNCTIONS
+
+export function openTaskModal() {
+  openOverlay()
+  const modal = document.querySelector('#add-task-modal') 
+  modal.style.display = 'block'
+}
+
+export function closeTaskModal() {
+  closeOverlay()
+  const modal = document.querySelector('#add-task-modal')
+  modal.style.display = 'none'
+}
+
+
+
+// TASK MODAL FUNCTIONS END
+
 
 // MAIN CONTENT FUNCTIONS
 
+// this function updates the title and subtitle of the main content div
+// with the clicked project name and description
 export function updateMainHeader(obj) {
   const title = document.querySelector('#content-project-name')
   const desc = document.querySelector('#content-project-description')

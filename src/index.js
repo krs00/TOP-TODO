@@ -4,7 +4,7 @@ import { getProjectArray, addNewProject, removeProject, updateProjectInfo, updat
 import { taskFactory } from "./modules/utils/taskFactory";
 import { getTaskArray, addNewTask, removeTask, updateTaskInfo } from "./modules/utils/taskManager";
 
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader } from "./DOM";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal } from "./DOM";
 
 const addProjectBtn = document.querySelector('#add-project-btn')
 const closeProjectBtn = document.querySelector('#close-project-btn')
@@ -14,15 +14,15 @@ const addTaskBtn = document.querySelector('#add-task-btn')
 const closeTaskBtn = document.querySelector('#close-task-btn')
 const submitTaskBtn = document.querySelector('#submit-task-btn')
 
-// addTaskBtn.addEventListener('click', openTaskModal)
-// closeTaskBtn.addEventListener('click', closeTaskModal)
+addTaskBtn.addEventListener('click', openTaskModal)
+closeTaskBtn.addEventListener('click', closeTaskModal)
 // submitTaskBtn.addEventListener('click', submitTaskModal)
 
 addProjectBtn.addEventListener('click', openProjectModal)
 closeProjectBtn.addEventListener('click', closeProjectModal)
 submitProjectBtn.addEventListener('click', submitProjectModal)
 
-// INITIALIZE ALL TASKS DEFAULT OBJECT
+// Adds all tasks default object to project array
 const initialAllTasks = projectFactory(0, 'All Tasks', 'All of your tasks!')
 addNewProject(initialAllTasks)
 
