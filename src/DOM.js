@@ -79,14 +79,20 @@ export function closeTaskModal() {
 
 // MAIN CONTENT FUNCTIONS
 
-// this function updates the title and subtitle of the main content div
-// with the clicked project name and description
+/* function updates the title and subtitle of the main content div
+   with the clicked project name and description */
 export function updateMainHeader(obj) {
   const title = document.querySelector('#content-project-name')
   const desc = document.querySelector('#content-project-description')
 
   title.innerText = obj.title
   desc.innerText = obj.description
+}
+
+// clears main content task list DOM nodes (for switching between tabs)
+export function clearMainTaskList() {
+  const taskList = document.querySelector('#task-list')
+  taskList.innerHTML = '';
 }
 
 
