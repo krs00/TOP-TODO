@@ -4,7 +4,7 @@ import { getProjectArray, addNewProject, removeProject, updateProjectInfo, updat
 import { taskFactory } from "./modules/utils/taskFactory";
 import { getTaskArray, addNewTask, removeTask, updateTaskInfo } from "./modules/utils/taskManager";
 
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal } from "./DOM";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal } from "./DOM";
 
 const addProjectBtn = document.querySelector('#add-project-btn')
 const closeProjectBtn = document.querySelector('#close-project-btn')
@@ -16,7 +16,7 @@ const submitTaskBtn = document.querySelector('#submit-task-btn')
 
 addTaskBtn.addEventListener('click', openTaskModal)
 closeTaskBtn.addEventListener('click', closeTaskModal)
-// submitTaskBtn.addEventListener('click', submitTaskModal)
+submitTaskBtn.addEventListener('click', submitTaskModal)
 
 addProjectBtn.addEventListener('click', openProjectModal)
 closeProjectBtn.addEventListener('click', closeProjectModal)
@@ -29,18 +29,20 @@ addNewProject(initialAllTasks)
 updateCurrentProject(0)
 
 
-const getCurrentProjectClick = (e) => {
+const handleProjectClick = (e) => {
     const element = e.target
-  
+
     if (element.hasAttribute('data-project-index')) {
         const value = element.getAttribute('data-project-index')
         updateCurrentProject(value)
         const currentProject = getCurrentProject()
         updateMainHeader(currentProject)
-    }
-  }
+        clearMainTaskList()
 
-document.body.addEventListener('click', getCurrentProjectClick) 
+    }
+}
+
+document.body.addEventListener('click', handleProjectClick) 
 
 document.body.addEventListener('click', () => {
     console.log(getCurrentProject())
