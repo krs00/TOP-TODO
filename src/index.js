@@ -42,6 +42,9 @@ const handleProjectClick = (e) => {
     }
 }
 
+
+// TESTING FUNCTIONS!!
+
 document.body.addEventListener('click', handleProjectClick) 
 
 // for testing purposes view clicked project in console
