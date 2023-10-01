@@ -1,6 +1,8 @@
 import { projectFactory } from "./modules/utils/projectFactory"
-import { addNewProject, getCurrentProject, getNewProjectId, getProjectArray } from "./modules/utils/projectManager"
+import { addNewProject, getCurrentProjectId, getNewProjectId, getProjectArray } from "./modules/utils/projectManager"
 import { projectBox } from "./modules/components/projectBox"
+import { addNewTask, getNewTaskId, getTaskArray } from "./modules/utils/taskManager"
+import { taskFactory } from "./modules/utils/taskFactory"
 
 function openOverlay() {
   const overlay = document.querySelector('#overlay')
@@ -47,7 +49,7 @@ export function submitProjectModal() {
 
   const newProject = projectFactory(newId, projectName, projectDescription)
   projectBox(newId, projectName)
-  addNewProject(newProject) 
+  addNewTask(newProject) 
 
   console.log(getProjectArray()) 
 
@@ -70,9 +72,42 @@ export function closeTaskModal() {
   closeOverlay()
   const modal = document.querySelector('#add-task-modal')
   modal.style.display = 'none'
+  clearTaskModalInputs()
 }
 
+function clearTaskModalInputs() {
+  const taskName = document.querySelector('#task-name-input')
+  const taskDescription = document.querySelector('#task-description-input')
+  const taskDate = document.querySelector('#task-date-input')
 
+  taskName.value = ''
+  taskDescription.value = ''
+  taskDate.value = ''
+
+}
+
+export function submitTaskModal() {
+  const taskName = document.querySelector('#task-name-input').value
+  const taskDescription = document.querySelector('#task-description-input').value
+  const taskDate = document.querySelector('#task-date-input').value
+
+  // console.log(projectName)
+  // console.log(projectDescription)
+  const newId = getNewTaskId()
+
+  const newTask = taskFactory(newId, getCurrentProjectId(), taskName, taskDescription, taskDate)
+  // projectBox(newId, projectName)
+  addNewTask(newTask) 
+
+  console.log(newTask)
+  console.log(getTaskArray())
+
+  // console.log(getTaskArray()) 
+
+  clearTaskModalInputs()
+  closeTaskModal() 
+
+}
 
 // TASK MODAL FUNCTIONS END
 
@@ -92,7 +127,7 @@ export function updateMainHeader(obj) {
 // clears main content task list DOM nodes (for switching between tabs)
 export function clearMainTaskList() {
   const taskList = document.querySelector('#task-list')
-  taskList.innerHTML = '';
+  taskList.innerHTML = "" 
 }
 
 
