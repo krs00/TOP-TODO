@@ -49,9 +49,9 @@ export function submitProjectModal() {
 
   const newProject = projectFactory(newId, projectName, projectDescription)
   projectBox(newId, projectName)
-  addNewTask(newProject) 
+  addNewProject(newProject) 
 
-  console.log(getProjectArray()) 
+  // console.log(getProjectArray()) 
 
   clearProjectModalInputs()
   closeProjectModal() 
@@ -99,8 +99,8 @@ export function submitTaskModal() {
   // projectBox(newId, projectName)
   addNewTask(newTask) 
 
-  console.log(newTask)
-  console.log(getTaskArray())
+  // console.log(newTask)
+  // console.log(getTaskArray())
 
   // console.log(getTaskArray()) 
 
