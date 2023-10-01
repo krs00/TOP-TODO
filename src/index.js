@@ -44,8 +44,12 @@ const handleProjectClick = (e) => {
 
 document.body.addEventListener('click', handleProjectClick) 
 
-document.body.addEventListener('click', () => {
-    console.log(getCurrentProject())
+// for testing purposes view clicked project in console
+document.body.addEventListener('click', (e) => {
+
+    const obj = getCurrentProject()
+    console.log(`~~ current project ~~\ntitle: ${obj.title}\ndescription: ${obj.description}\nid: ${obj.id}`)
+
 })
 
 
