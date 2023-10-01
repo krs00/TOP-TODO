@@ -62,3 +62,7 @@ export const updateCurrentProject = (id) => {
 export const getCurrentProject = () => {
   return projectManager.currentProject
 }
+
+export const getCurrentProjectId = () => {
+  return projectManager.currentProject.id
+}
