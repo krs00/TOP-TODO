@@ -52,6 +52,7 @@ document.body.addEventListener('click', (e) => {
 
     const obj = getCurrentProject()
     console.log(`~~ current project ~~\ntitle: ${obj.title}\ndescription: ${obj.description}\nid: ${obj.id}`)
+    console.log(getProjectArray())
 
 })
 
