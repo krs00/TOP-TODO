@@ -268,7 +268,6 @@ body {
   user-select: none;
 }
 
-
 .popup-input {
   border-style: none;
   border-radius: 20px;
@@ -280,7 +279,6 @@ body {
 
 .popup-input:focus {
   outline: none;
-  
 }
 
 .modal-content {
@@ -320,7 +318,78 @@ body {
   margin-top: 15px;
 }
 
+/* main content task div styles!! */
 
+.main-task-item {
+  font-size: 20px;
+  min-width: 275px;
+  display: inline-block;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  color: #2a4482;
+  background-color: #fcfafc;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 10px #2a4482;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.main-task-line-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  gap: 15px;
+}
+
+.main-task-top-btn {
+  font-size: 20px;
+  width: 55px;
+  display: inline-block;
+  text-align: center;
+  /* padding: 10px; */
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  /* color: #2a4482;
+  background-color: #ff00ff; */
+  border: none;
+  border-radius: 50px;
+  /* box-shadow: 0px 5px #2a4482; */
+  /* letter-spacing: 1px; */
+}
+
+.main-task-title {
+  font-size: 25px;
+   letter-spacing: 2px;
+}
+
+.main-del-btn {
+  background-color: #ff9595;
+  color: #850000;
+  box-shadow: 0px 5px #850000;
+}
+
+.main-del-btn:hover { background-color: #ff9595;} 
+
+.main-del-btn:active {
+  background-color: #a7c2ff;
+  box-shadow: 0 5px #2a4482;
+  transform: translateY(4px);
+}
+
+.main-edit-btn {
+  background-color: #a7c2ff;
+  color: #2a4482;
+  box-shadow: 0px 5px #2a4482;
+
+  /* background-color: #ffa200;
+  color: #744900; 
+  box-shadow: 0px 5px #744900; */
+}
 
 
 /* UTILITY CLASSES */
