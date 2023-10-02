@@ -5,12 +5,7 @@ export function projectBox(id, projectName) {
 
   div.innerText = projectName
 
-  // div.style.height = '100px'
-  // div.style.width = '200px'
-  // div.style.backgroundColor = 'red'
-
   div.classList.add('sidebar-task-btn')
-
 
   const container = document.querySelector('#new-projects-container')
   container.appendChild(div)
