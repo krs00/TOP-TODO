@@ -332,7 +332,7 @@ body {
   background-color: #fcfafc;
   border: none;
   border-radius: 25px;
-  box-shadow: 0px 10px #2a4482;
+  box-shadow: 0px 8px #2a4482;
   letter-spacing: 1px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -345,22 +345,6 @@ body {
   gap: 15px;
 }
 
-.main-task-top-btn {
-  font-size: 20px;
-  width: 55px;
-  display: inline-block;
-  text-align: center;
-  /* padding: 10px; */
-  cursor: pointer;
-  text-decoration: none;
-  outline: none;
-  /* color: #2a4482;
-  background-color: #ff00ff; */
-  border: none;
-  border-radius: 50px;
-  /* box-shadow: 0px 5px #2a4482; */
-  /* letter-spacing: 1px; */
-}
 
 .main-task-title {
   font-size: 25px;
@@ -368,28 +352,65 @@ body {
 }
 
 .main-del-btn {
-  background-color: #ff9595;
-  color: #850000;
-  box-shadow: 0px 5px #850000;
+  font-size: 20px;
+  width: 55px;
+  display: inline-block;
+  /* padding: 15px 20px; */
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  /* color: #2a4482; */
+  color: #6c0000;
+  background-color: #ff9191;
+  /* background-color: #7c9eec; */
+  border: none;
+  border-radius: 25px;
+  /* box-shadow: 0 5px #2a4482; */
+  box-shadow: 0 5px #6c0000;
+  letter-spacing: 2px;
+  user-select: none;
+
 }
 
-.main-del-btn:hover { background-color: #ff9595;} 
+.main-del-btn:hover { background-color: #ffb3b3;}
 
 .main-del-btn:active {
-  background-color: #a7c2ff;
-  box-shadow: 0 5px #2a4482;
-  transform: translateY(4px);
+  background-color: #ffb3b3;
+  box-shadow: 0 4px #6c0000;
+  transform: translateY(2px);
 }
 
 .main-edit-btn {
-  background-color: #a7c2ff;
+  font-size: 20px;
+  width: 60px;
+  display: inline-block;
+  /* padding: 15px 20px; */
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
   color: #2a4482;
-  box-shadow: 0px 5px #2a4482;
+  /* color: #6c0000; */
+  /* background-color: #ff9191; */
+  background-color: #7c9eec;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 5px #2a4482;
+  /* box-shadow: 0 5px #6c0000; */
+  letter-spacing: 2px;
+  user-select: none;
 
-  /* background-color: #ffa200;
-  color: #744900; 
-  box-shadow: 0px 5px #744900; */
 }
+
+.main-edit-btn:hover { background-color: #a7c2ff;}
+
+.main-edit-btn:active {
+  background-color: #a7c2ff;
+  box-shadow: 0 4px #2a4482;
+  transform: translateY(2px);
+}
+
 
 
 /* UTILITY CLASSES */
