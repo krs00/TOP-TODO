@@ -58,5 +58,10 @@ document.body.addEventListener('click', (e) => {
 })
 
 taskBox(6, 6, 'hi', 'hi', 'hi')
+taskBox(6, 6, 'hi', 'testtest', 'hi')
+taskBox(6, 6, 'hi', 'hi', 'hi')
+taskBox(6, 6, 'hi', 'hi', 'hi')
+taskBox(6, 6, 'hi', 'hi', 'hi')
+taskBox(6, 6, 'hi', 'hi', 'hi')
 
 
