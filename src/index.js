@@ -5,6 +5,7 @@ import { taskFactory } from "./modules/utils/taskFactory";
 import { getTaskArray, addNewTask, removeTask, updateTaskInfo } from "./modules/utils/taskManager";
 
 import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal } from "./DOM";
+import { taskBox } from "./modules/components/taskBox";
 
 const addProjectBtn = document.querySelector('#add-project-btn')
 const closeProjectBtn = document.querySelector('#close-project-btn')
@@ -56,10 +57,6 @@ document.body.addEventListener('click', (e) => {
 
 })
 
-
-
-
-
-
+taskBox(6, 6, 'hi', 'hi', 'hi')
 
 
