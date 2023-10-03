@@ -6,6 +6,7 @@ import { getTaskArray, addNewTask, removeTask, updateTaskInfo } from "./modules/
 
 import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems } from "./DOM";
 import { taskBox } from "./modules/components/taskBox";
+import { localStorageInit } from "./modules/utils/localStorage";
 
 const addProjectBtn = document.querySelector('#add-project-btn')
 const closeProjectBtn = document.querySelector('#close-project-btn')
@@ -23,9 +24,11 @@ addProjectBtn.addEventListener('click', openProjectModal)
 closeProjectBtn.addEventListener('click', closeProjectModal)
 submitProjectBtn.addEventListener('click', submitProjectModal)
 
-// Adds all tasks default object to project array
-const initialAllTasks = projectFactory(0, 'All Tasks', 'All of your tasks!')
-addNewProject(initialAllTasks)
+// Initializes storage
+localStorageInit()
+
+console.log(localStorage.getItem("projectsArray"))
+console.log(localStorage.getItem("tasksArray"))
 
 updateCurrentProject(0)
 
