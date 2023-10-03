@@ -1,6 +1,6 @@
 export const getProjectsArray = () => {
-  const array = localStorage.getItem("projectsArray")
-  const projectsArray = JSON.parse(array); 
+  const projectsArray = localStorage.getItem("projectsArray")
+  JSON.parse(projectsArray); 
 
   return projectsArray 
 };
@@ -71,10 +71,12 @@ export const updateCurrentProject = (id) => {
 
 export const getCurrentProject = () => {
   const currentProject = localStorage.getItem("currentProject")
+  JSON.parse(currentProject);
   return currentProject
 }
 
 export const getCurrentProjectId = () => {
   const currentProject = localStorage.getItem("currentProject")
+  JSON.parse(currentProject)
   return currentProject.id
 }

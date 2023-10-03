@@ -6,7 +6,6 @@ import { updateCurrentProject } from "./projectManager";
 export function localStorageInit() {
 
     const projectsArray = localStorage.getItem("projectsArray")
-    const currentProject = localStorage.getItem("currentProject")
     
     const tasksArray = localStorage.getItem("tasksArray")
 
@@ -24,9 +23,9 @@ export function localStorageInit() {
         localStorage.setItem("tasksArray", JSON.stringify([]));
     }
 
-    // check if there is a current project selected
-    if (currentProject === null) {
-        updateCurrentProject(0)
-    }
+    // // check if there is a current project selected
+    // if (currentProject === null) {
+    //     updateCurrentProject(0)
+    // }
 
 }

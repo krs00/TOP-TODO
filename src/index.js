@@ -1,5 +1,5 @@
 import { projectFactory } from "./modules/utils/projectFactory";
-import {addNewProject, removeProject, updateProjectInfo, updateCurrentProject, getCurrentProject } from "./modules/utils/projectManager";
+import {addNewProject, removeProject, updateProjectInfo, updateCurrentProject, getCurrentProject, getProjectsArray } from "./modules/utils/projectManager";
 
 import { taskFactory } from "./modules/utils/taskFactory";
 import { getTaskArray, addNewTask, removeTask, updateTaskInfo } from "./modules/utils/taskManager";
@@ -26,6 +26,10 @@ submitProjectBtn.addEventListener('click', submitProjectModal)
 
 // Initializes storage
 localStorageInit()
+updateCurrentProject(0)
+
+// console.log(getProjectsArray()) 
+
 
 
 const handleProjectClick = (e) => {
@@ -51,6 +55,7 @@ document.body.addEventListener('click', handleProjectClick)
 document.body.addEventListener('click', (e) => {
  
     const obj = getCurrentProject()
+    console.log(obj)
     console.log(`~~ current project ~~\ntitle: ${obj.title}\ndescription: ${obj.description}\nid: ${obj.id}`)
 
 })
