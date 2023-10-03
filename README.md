@@ -10,7 +10,8 @@
 
 * HTML
 * CSS
-* Javascript
+* JavaScript
+* localStorage
 
 ## Description
 
