@@ -1,5 +1,5 @@
 import { projectFactory } from "./modules/utils/projectFactory"
-import { addNewProject, getCurrentProjectId, getNewProjectId, getProjectArray } from "./modules/utils/projectManager"
+import { addNewProject, getCurrentProjectId, getNewProjectId} from "./modules/utils/projectManager"
 import { projectBox } from "./modules/components/projectBox"
 import { addNewTask, getNewTaskId, getTaskArray } from "./modules/utils/taskManager"
 import { taskFactory } from "./modules/utils/taskFactory"
@@ -51,8 +51,6 @@ export function submitProjectModal() {
   const newProject = projectFactory(newId, projectName, projectDescription)
   projectBox(newId, projectName)
   addNewProject(newProject) 
-
-  // console.log(getProjectArray()) 
 
   clearProjectModalInputs()
   closeProjectModal() 
