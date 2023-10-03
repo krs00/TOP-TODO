@@ -27,11 +27,6 @@ submitProjectBtn.addEventListener('click', submitProjectModal)
 // Initializes storage
 localStorageInit()
 
-console.log(localStorage.getItem("projectsArray"))
-console.log(localStorage.getItem("tasksArray"))
-
-updateCurrentProject(0)
-
 
 const handleProjectClick = (e) => {
     const element = e.target
