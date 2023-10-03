@@ -1,5 +1,7 @@
 export const getProjectsArray = () => {
-  const projectsArray = localStorage.getItem("projectsArray")
+  const array = localStorage.getItem("projectsArray")
+  const projectsArray = JSON.parse(array); 
+
   return projectsArray 
 };
 
