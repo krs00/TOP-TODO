@@ -7,9 +7,9 @@ body {
   background-size: 50px 50px;
   background-position: 0 0, 50px 50px;
   animation: slideAnimation 15s linear infinite;
-  z-index: 1;
+  z-index: 1; 
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 @keyframes slideAnimation {
@@ -350,7 +350,7 @@ body {
 
 .main-task-title {
   font-size: 25px;
-   letter-spacing: 2px;
+  letter-spacing: 2px;
 }
 
 .main-del-btn {
