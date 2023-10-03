@@ -4,7 +4,7 @@ import { getProjectArray, addNewProject, removeProject, updateProjectInfo, updat
 import { taskFactory } from "./modules/utils/taskFactory";
 import { getTaskArray, addNewTask, removeTask, updateTaskInfo } from "./modules/utils/taskManager";
 
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal } from "./DOM";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems } from "./DOM";
 import { taskBox } from "./modules/components/taskBox";
 
 const addProjectBtn = document.querySelector('#add-project-btn')
@@ -39,6 +39,7 @@ const handleProjectClick = (e) => {
         const currentProject = getCurrentProject()
         updateMainHeader(currentProject)
         clearMainTaskList()
+        populateTaskItems()
 
     }
 }
@@ -50,18 +51,12 @@ document.body.addEventListener('click', handleProjectClick)
 
 // for testing purposes view clicked project in console
 document.body.addEventListener('click', (e) => {
-
+ 
     const obj = getCurrentProject()
     console.log(`~~ current project ~~\ntitle: ${obj.title}\ndescription: ${obj.description}\nid: ${obj.id}`)
-    console.log(getProjectArray())
+    // console.log(getProjectArray())
 
 })
 
-taskBox(6, 6, 'hi', 'hi', 'hi')
-taskBox(6, 6, 'hi', 'testtest', 'hi')
-taskBox(6, 6, 'hi', 'hi', 'hi')
-taskBox(6, 6, 'hi', 'hi', 'hi')
-taskBox(6, 6, 'hi', 'hi', 'hi')
-taskBox(6, 6, 'hi', 'hi', 'hi')
 
 
