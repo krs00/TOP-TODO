@@ -110,13 +110,17 @@ export function submitTaskModal() {
 export function populateTaskItems() {
 
   const taskArray = getTaskArray()
-  console.log(getTaskArray())
   for (let i = 0; i < taskArray.length; i++) {
 
-    const obj = taskArray[i] 
-    if (obj.projectId === getCurrentProjectId()) {
+    const obj = taskArray[i]
+
+    if (getCurrentProjectId() === 0) {
+      taskBox(obj.title, obj.description, obj.dueDate)}
+
+    else if (obj.projectId === getCurrentProjectId()) {
       taskBox(obj.title, obj.description, obj.dueDate)
-    } 
+    }
+    
   }
 }
 
