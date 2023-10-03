@@ -15,18 +15,18 @@ export function taskBox(title, description, dueDate) {
     editBtn.classList.add('main-edit-btn')
     
      // create del btn
-     const delBtn = document.createElement('div')
-     delBtn.innerText = 'del'
-     delBtn.classList.add('main-del-btn')  
+    const delBtn = document.createElement('div')
+    delBtn.innerText = 'del'
+    delBtn.classList.add('main-del-btn')  
 
-     btnWrapper.appendChild(editBtn)
-     btnWrapper.appendChild(delBtn)
+    btnWrapper.appendChild(editBtn)
+    btnWrapper.appendChild(delBtn)
 
      // main title
-     const mainTitle = document.createElement('p')
-     mainTitle.classList.add('main-task-title')
-     mainTitle.innerText = title
-     taskBody.appendChild(mainTitle)
+    const mainTitle = document.createElement('p')
+    mainTitle.classList.add('main-task-title')
+    mainTitle.innerText = title
+    taskBody.appendChild(mainTitle)
 
     // duetext
     const duetext = document.createElement('p')
@@ -41,6 +41,5 @@ export function taskBox(title, description, dueDate) {
     const container = document.querySelector('#task-list')
 
     container.appendChild(taskBody)
-    console.log('test taskbox')
   }
 
