@@ -1,13 +1,9 @@
-const projectManager = {
-  currentProject: null
-};
-
 export const getProjectsArray = () => {
   const projectsArray = localStorage.getItem("projectsArray")
   return projectsArray 
 };
 
-export const saveProjectsArray = (array) => {
+const saveProjectsArray = (array) => {
 
   localStorage.setItem("projectsArray", JSON.stringify(array));
 };
@@ -37,10 +33,10 @@ export const getNewProjectId = () => {
   return newId
 };
 
-// WIP WIP WIP WIP WIP WIP
+
 export const updateProjectInfo = (id, title, desc) => {
 
-  const array = projectManager.projectArray
+  const array = getProjectsArray()
 
   for (let i = 0; i < array.length; i++) {
 
@@ -50,26 +46,33 @@ export const updateProjectInfo = (id, title, desc) => {
 
       project.title = title
       project.description = desc
-    }
+    }  
   }
+
+  saveProjectsArray(array) 
 }
 
+
 export const updateCurrentProject = (id) => {
-  const array = projectManager.projectArray
+  const array = getProjectsArray()
 
   for (let i = 0; i < array.length; i++) {
 
-    if (array[i].id == id) {
+    const obj = array[i]
 
-      projectManager.currentProject = array[i]
+    if (obj.id == id) {
+
+      localStorage.setItem("currentProject", JSON.stringify(obj));
     }
   }
 }
 
 export const getCurrentProject = () => {
-  return projectManager.currentProject
+  const currentProject = localStorage.getItem("currentProject")
+  return currentProject
 }
 
 export const getCurrentProjectId = () => {
-  return projectManager.currentProject.id
+  const currentProject = localStorage.getItem("currentProject")
+  return currentProject.id
 }
