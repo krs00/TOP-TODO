@@ -1,36 +1,43 @@
 const projectManager = {
-  projectIdCounter: 0,
-  projectArray: [],
   currentProject: null
 };
 
-export const getProjectArray = () => {
-  projectManager.projectArray;
-  return projectManager.projectArray; 
+export const getProjectsArray = () => {
+  const projectsArray = localStorage.getItem("projectsArray")
+  return projectsArray 
+};
+
+export const saveProjectsArray = (array) => {
+
+  localStorage.setItem("projectsArray", JSON.stringify(array));
 };
 
 export const addNewProject = (obj) => {
-  projectManager.projectArray.push(obj);
-  incrementProjectIdCounter()  
+  const projectsArray = getProjectsArray()
+  projectsArray.push(obj);
+  saveProjectsArray(projectsArray) 
 };
 
 export const removeProject = (id) => {
-  const array = projectManager.projectArray
+  const projectsArray = getProjectsArray()
 
-  const newArray = array.filter(item => item.id !== id);
+  const newArray = projectsArray.filter(item => item.id !== id);
 
-  projectManager.projectArray = newArray
+  saveProjectsArray(newArray)
 
 };
 
 export const getNewProjectId = () => {
-  return projectManager.projectIdCounter
+  const projectsArray = getProjectsArray()
+
+  const lastProject = projectsArray[projectsArray.length - 1];
+
+  const newId = lastProject.id + 1
+
+  return newId
 };
 
-const incrementProjectIdCounter = () => {
-  projectManager.projectIdCounter ++;
-};
-
+// WIP WIP WIP WIP WIP WIP
 export const updateProjectInfo = (id, title, desc) => {
 
   const array = projectManager.projectArray
