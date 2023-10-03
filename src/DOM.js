@@ -3,6 +3,7 @@ import { addNewProject, getCurrentProjectId, getNewProjectId, getProjectArray } 
 import { projectBox } from "./modules/components/projectBox"
 import { addNewTask, getNewTaskId, getTaskArray } from "./modules/utils/taskManager"
 import { taskFactory } from "./modules/utils/taskFactory"
+import { taskBox } from "./modules/components/taskBox"
 
 function openOverlay() {
   const overlay = document.querySelector('#overlay')
@@ -97,16 +98,26 @@ export function submitTaskModal() {
 
   const newTask = taskFactory(newId, getCurrentProjectId(), taskName, taskDescription, taskDate)
   // projectBox(newId, projectName)
-  addNewTask(newTask) 
+  addNewTask(newTask)
+  taskBox(taskName, taskDescription, taskDate)
 
-  // console.log(newTask)
-  // console.log(getTaskArray())
-
-  // console.log(getTaskArray()) 
+  console.log(getTaskArray())
 
   clearTaskModalInputs()
   closeTaskModal() 
+}
 
+export function populateTaskItems() {
+
+  const taskArray = getTaskArray()
+  console.log(getTaskArray())
+  for (let i = 0; i < taskArray.length; i++) {
+
+    const obj = taskArray[i] 
+    if (obj.projectId === getCurrentProjectId()) {
+      taskBox(obj.title, obj.description, obj.dueDate)
+    } 
+  }
 }
 
 // TASK MODAL FUNCTIONS END
