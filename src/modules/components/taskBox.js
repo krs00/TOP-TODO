@@ -1,5 +1,7 @@
-export function taskBox(title, description, dueDate) {
+export function taskBox(id, title, description, dueDate) {
     const taskBody = document.createElement('div')
+
+    taskBody.setAttribute("data-task-index", id)
 
     // creates body
     taskBody.classList.add('main-task-item')
@@ -36,7 +38,7 @@ export function taskBox(title, description, dueDate) {
     // main title
     const descText = document.createElement('p')
     descText.innerText = description
-    taskBody.appendChild(descText)
+    taskBody.appendChild(descText) 
 
     const container = document.querySelector('#task-list')
 
