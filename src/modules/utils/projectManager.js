@@ -70,13 +70,13 @@ export const updateCurrentProject = (id) => {
 }
 
 export const getCurrentProject = () => {
-  const currentProject = localStorage.getItem("currentProject")
-  JSON.parse(currentProject);
+  const currentProjectString = localStorage.getItem("currentProject")
+  const currentProject = JSON.parse(currentProjectString)
   return currentProject
 }
 
 export const getCurrentProjectId = () => {
-  const currentProject = localStorage.getItem("currentProject")
-  JSON.parse(currentProject)
+  const currentProjectString = localStorage.getItem("currentProject")
+  const currentProject = JSON.parse(currentProjectString)
   return currentProject.id
 }
