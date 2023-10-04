@@ -108,10 +108,10 @@ export function populateTaskItems() {
     const obj = taskArray[i]
 
     if (getCurrentProjectId() === 0) {
-      taskBox(null, obj.title, obj.description, obj.dueDate)}
+      taskBox(obj.id, obj.title, obj.description, obj.dueDate)}
 
     else if (obj.projectId === getCurrentProjectId()) {
-      taskBox(null, obj.title, obj.description, obj.dueDate)
+      taskBox(obj.id, obj.title, obj.description, obj.dueDate)
     }
     
   }
