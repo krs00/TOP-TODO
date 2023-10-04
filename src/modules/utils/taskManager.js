@@ -1,39 +1,53 @@
-const taskManager = {
-  taskIdCounter: 0,
-  taskArray: [],
-  currentTask: null,
+// const taskManager = {
+//   taskIdCounter: 0,
+//   taskArray: [],
+//   currentTask: null,
+// };
+
+export const getTasksArray = () => {
+  const tasksArrayString = localStorage.getItem("tasksArray");
+  const tasksArray = JSON.parse(tasksArrayString);
+
+  return tasksArray;
 };
 
-export const getTaskArray = () => {
-  taskManager.taskArray;
-  return taskManager.taskArray; 
+const saveTasksArray = (array) => {
+ 
+  localStorage.setItem("tasksArray", JSON.stringify(array));
 };
 
 export const addNewTask = (obj) => {
-  taskManager.taskArray.push(obj);
-  incrementTaskIdCounter()  
+  const tasksArray = getTasksArray()
+  tasksArray.push(obj);
+  saveTasksArray(tasksArray) 
 };
 
 export const removeTask = (id) => {
-  const array = taskManager.taskArray
+  const tasksArray = getTasksArray()
 
-  const newArray = array.filter(item => item.id !== id);
+  const newArray = tasksArray.filter(item => item.id !== id);
 
-  taskManager.taskArray = newArray
+  saveTasksArray(newArray)
 
 };
 
 export const getNewTaskId = () => {
-  return taskManager.taskIdCounter
-};
+  const tasksArray = getTasksArray()
 
-const incrementTaskIdCounter = () => {
-  taskManager.taskIdCounter ++;
+  const lastTask = tasksArray[tasksArray.length - 1];
+
+  const newId = lastTask.id + 1
+
+  if (lastTask === null) {
+    return 0
+  } else {
+    return newId
+  }
 };
 
 export const updateTaskInfo = (id, title, desc, dueDate) => {
 
-  const array = taskManager.taskArray
+  const array = getTasksArray()
 
   for (let i = 0; i < array.length; i++) {
 
@@ -47,23 +61,35 @@ export const updateTaskInfo = (id, title, desc, dueDate) => {
     }
 
   }
-  
+  saveTasksArray(array) 
 }
 
 export const updateCurrentTask = (id) => {
-  const array = taskManagerManager.taskArray
+  const array = getTasksArray()
 
   for (let i = 0; i < array.length; i++) {
 
-    const task = array[i]
+    const obj = array[i]
 
-    if (task.id === id) {
+    if (obj === null) {
+      localStorage.setItem("currentTask", JSON.stringify({})); 
+    }
 
-      taskManager.currentTask = task
+    if (obj.id === id) {
+
+      localStorage.setItem("currentTask", JSON.stringify(obj));
     }
   }
 }
 
 export const getCurrentTask = () => {
-  return taskManager.currentTask
+  const currentTaskString = localStorage.getItem("currentTask")
+  const currentTask = JSON.parse(currentTaskString)
+  return currentTask
+}
+
+export const getCurrentTaskId = () => {
+  const currentTaskString = localStorage.getItem("currentTask")
+  const currentTask = JSON.parse(currentTaskString)
+  return currentTask.id
 }
