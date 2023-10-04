@@ -1,5 +1,5 @@
 import { projectFactory } from "./modules/utils/projectFactory"
-import { addNewProject, getCurrentProjectId, getNewProjectId} from "./modules/utils/projectManager"
+import { addNewProject, getCurrentProjectId, getNewProjectId, getCurrentProject} from "./modules/utils/projectManager"
 import { projectBox } from "./modules/components/projectBox"
 import { addNewTask, getNewTaskId, getTaskArray } from "./modules/utils/taskManager"
 import { taskFactory } from "./modules/utils/taskFactory"
@@ -129,11 +129,14 @@ export function populateTaskItems() {
 
 /* function updates the title and subtitle of the main content div
    with the clicked project name and description */
-export function updateMainHeader(obj) {
+export function updateMainHeader() {
+
+  const obj = getCurrentProject()
+
   const title = document.querySelector('#content-project-name')
   const desc = document.querySelector('#content-project-description')
 
-  title.innerText = obj.title
+  title.innerText = obj.title 
   desc.innerText = obj.description
 }
 
