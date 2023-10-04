@@ -4,7 +4,7 @@ import {addNewProject, removeProject, updateProjectInfo, updateCurrentProject, g
 import { taskFactory } from "./modules/utils/taskFactory";
 import { getTaskArray, addNewTask, removeTask, updateTaskInfo } from "./modules/utils/taskManager";
 
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems } from "./DOM";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns } from "./DOM";
 import { taskBox } from "./modules/components/taskBox";
 import { localStorageInit } from "./modules/utils/localStorage";
 
@@ -25,12 +25,11 @@ closeProjectBtn.addEventListener('click', closeProjectModal)
 submitProjectBtn.addEventListener('click', submitProjectModal)
 
 // Initializes storage
-localStorageInit()
-updateCurrentProject(0)
-
-console.log(getProjectsArray())
-console.log(typeof(getCurrentProject()))
+localStorageInit() 
+// updateCurrentProject(0) don't add this back in it will ruin persistance!!!
+// Also it's already being called though localStorageInit() 
 updateMainHeader() 
+populateSideBarBtns()  
 
 
 
