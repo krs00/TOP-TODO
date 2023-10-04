@@ -28,7 +28,9 @@ submitProjectBtn.addEventListener('click', submitProjectModal)
 localStorageInit()
 updateCurrentProject(0)
 
-// console.log(getProjectsArray()) 
+console.log(getProjectsArray())
+console.log(typeof(getCurrentProject()))
+updateMainHeader() 
 
 
 
@@ -38,8 +40,7 @@ const handleProjectClick = (e) => {
     if (element.hasAttribute('data-project-index')) {
         const value = element.getAttribute('data-project-index')
         updateCurrentProject(value)
-        const currentProject = getCurrentProject()
-        updateMainHeader(currentProject)
+        updateMainHeader()
         clearMainTaskList()
         populateTaskItems()
 
