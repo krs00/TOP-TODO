@@ -1,13 +1,18 @@
 import { projectFactory } from "./projectFactory";
 import { updateCurrentProject } from "./projectManager";
 
-// These methods are for saving / storing in local storage :)
+// These methods are for initializing localStorage!!
 
 export function localStorageInit() {
 
+    initProjectsArray() 
+    initTasksArray()
+    initCurrentProject()
+}
+
+
+function initProjectsArray() {
     const projectsArray = localStorage.getItem("projectsArray")
-    const currentProject = localStorage.getItem("currentProject")
-    const tasksArray = localStorage.getItem("tasksArray")
 
     if (projectsArray === null) {
 
@@ -18,14 +23,28 @@ export function localStorageInit() {
 
         localStorage.setItem("projectsArray", JSON.stringify(array));
     }
+}
+
+
+
+function initTasksArray() {
+
+    const tasksArray = localStorage.getItem("tasksArray")
 
     if (tasksArray === null) {
         localStorage.setItem("tasksArray", JSON.stringify([]));
     }
 
+}
+
+
+function initCurrentProject() {
+
+    const currentProject = localStorage.getItem("currentProject")
+
     // check if there is a current project selected
+    // select default "All tasks" if none all selected
     if (currentProject === null) {
         updateCurrentProject(0)
     }
-
 }
