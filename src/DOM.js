@@ -1,5 +1,5 @@
 import { projectFactory } from "./modules/utils/projectFactory"
-import { addNewProject, getCurrentProjectId, getNewProjectId, getCurrentProject} from "./modules/utils/projectManager"
+import { addNewProject, getCurrentProjectId, getNewProjectId, getCurrentProject, getProjectsArray} from "./modules/utils/projectManager"
 import { projectBox } from "./modules/components/projectBox"
 import { addNewTask, getNewTaskId, getTaskArray } from "./modules/utils/taskManager"
 import { taskFactory } from "./modules/utils/taskFactory"
@@ -132,6 +132,7 @@ export function populateTaskItems() {
 export function updateMainHeader() {
 
   const obj = getCurrentProject()
+  console.log(`current is ${obj.title}`)
 
   const title = document.querySelector('#content-project-name')
   const desc = document.querySelector('#content-project-description')
@@ -144,6 +145,24 @@ export function updateMainHeader() {
 export function clearMainTaskList() {
   const taskList = document.querySelector('#task-list')
   taskList.innerHTML = "" 
+}
+
+
+// DOM functions for the sidebar
+
+export function populateSideBar() {
+
+  const projectsArray = getProjectsArray()
+
+  for (let i = 0; i < projectsArray.length; i++) {
+
+    const obj = projectsArray[i]
+    // if statement to ensure sidebar is not populated with the deafault task
+    // default "All Tasks" is hard coded in
+    if (obj.id !== 0) {
+      projectBox(obj.id, obj.title)
+    }
+  }
 }
 
 
