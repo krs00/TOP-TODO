@@ -1,7 +1,7 @@
 import { projectFactory } from "./modules/utils/projectFactory"
 import { addNewProject, getCurrentProjectId, getNewProjectId, getCurrentProject, getProjectsArray} from "./modules/utils/projectManager"
 import { projectBox } from "./modules/components/projectBox"
-import { addNewTask, getNewTaskId, getTaskArray } from "./modules/utils/taskManager"
+import { addNewTask, getNewTaskId, getTasksArray } from "./modules/utils/taskManager"
 import { taskFactory } from "./modules/utils/taskFactory"
 import { taskBox } from "./modules/components/taskBox"
 
@@ -90,16 +90,11 @@ export function submitTaskModal() {
   const taskDescription = document.querySelector('#task-description-input').value
   const taskDate = document.querySelector('#task-date-input').value
 
-  // console.log(projectName)
-  // console.log(projectDescription)
   const newId = getNewTaskId()
 
   const newTask = taskFactory(newId, getCurrentProjectId(), taskName, taskDescription, taskDate)
-  // projectBox(newId, projectName)
   addNewTask(newTask)
-  taskBox(taskName, taskDescription, taskDate)
-
-  console.log(getTaskArray())
+  taskBox(newId, taskName, taskDescription, taskDate)
 
   clearTaskModalInputs()
   closeTaskModal() 
@@ -107,7 +102,7 @@ export function submitTaskModal() {
 
 export function populateTaskItems() {
 
-  const taskArray = getTaskArray()
+  const taskArray = getTasksArray()
   for (let i = 0; i < taskArray.length; i++) {
 
     const obj = taskArray[i]
@@ -125,14 +120,14 @@ export function populateTaskItems() {
 // TASK MODAL FUNCTIONS END
 
 
-// MAIN CONTENT FUNCTIONS
+// MAIN CONTENT FUNCTIONS --
 
 /* function updates the title and subtitle of the main content div
    with the clicked project name and description */
 export function updateMainHeader() {
 
   const obj = getCurrentProject()
-  console.log(`current is ${obj.title}`)
+  // console.log(`current is ${obj.title}`)
 
   const title = document.querySelector('#content-project-name')
   const desc = document.querySelector('#content-project-description')
@@ -148,9 +143,18 @@ export function clearMainTaskList() {
 }
 
 
+// }
+
+
+
+// MAIN CONTENT FUNCTIONS END --
+
+
 // DOM functions for the sidebar
 
-export function populateSideBar() {
+// this function populates sidebar with button DOM elements
+
+export function populateSideBarBtns() {
 
   const projectsArray = getProjectsArray()
 
@@ -158,7 +162,7 @@ export function populateSideBar() {
 
     const obj = projectsArray[i]
     // if statement to ensure sidebar is not populated with the deafault task
-    // default "All Tasks" is hard coded in
+    // default "All Tasks" is hard coded in!!
     if (obj.id !== 0) {
       projectBox(obj.id, obj.title)
     }
