@@ -34,15 +34,18 @@ export const removeTask = (id) => {
 export const getNewTaskId = () => {
   const tasksArray = getTasksArray()
 
-  const lastTask = tasksArray[tasksArray.length - 1];
+  if (!tasksArray.length) {
 
-  const newId = lastTask.id + 1
-
-  if (lastTask === null) {
     return 0
-  } else {
+  }
+  
+  else if (tasksArray.length) {
+
+    const lastTask = tasksArray[tasksArray.length - 1];
+    const newId = lastTask.id + 1
     return newId
   }
+
 };
 
 export const updateTaskInfo = (id, title, desc, dueDate) => {
