@@ -1,11 +1,6 @@
-import { projectFactory } from "./modules/utils/projectFactory";
-import {addNewProject, removeProject, updateProjectInfo, updateCurrentProject, getCurrentProject, getProjectsArray } from "./modules/utils/projectManager";
-
-import { taskFactory } from "./modules/utils/taskFactory";
-import { getTaskArray, addNewTask, removeTask, updateTaskInfo } from "./modules/utils/taskManager";
-
+import {updateCurrentProject, getCurrentProject} from "./modules/utils/projectManager";
+ 
 import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns } from "./DOM";
-import { taskBox } from "./modules/components/taskBox";
 import { localStorageInit } from "./modules/utils/localStorage";
 
 const addProjectBtn = document.querySelector('#add-project-btn')
@@ -29,7 +24,8 @@ localStorageInit()
 // updateCurrentProject(0) don't add this back in it will ruin persistance!!!
 // Also it's already being called though localStorageInit() 
 updateMainHeader() 
-populateSideBarBtns()  
+populateSideBarBtns()
+populateTaskItems()
 
 
 
@@ -55,8 +51,8 @@ document.body.addEventListener('click', handleProjectClick)
 document.body.addEventListener('click', (e) => {
  
     const obj = getCurrentProject()
-    console.log(obj)
-    console.log(`~~ current project ~~\ntitle: ${obj.title}\ndescription: ${obj.description}\nid: ${obj.id}`)
+    // console.log(obj)
+    // console.log(`~~ current project ~~\ntitle: ${obj.title}\ndescription: ${obj.description}\nid: ${obj.id}`)
 
 })
 
