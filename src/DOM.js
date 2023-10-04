@@ -143,10 +143,6 @@ export function clearMainTaskList() {
 }
 
 
-// }
-
-
-
 // MAIN CONTENT FUNCTIONS END --
 
 
