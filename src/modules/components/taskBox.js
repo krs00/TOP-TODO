@@ -15,11 +15,13 @@ export function taskBox(id, title, description, dueDate) {
     const editBtn = document.createElement('div')
     editBtn.innerText = 'edit'
     editBtn.classList.add('main-edit-btn')
+    editBtn.setAttribute("data-task-index", id)
     
      // create del btn
     const delBtn = document.createElement('div')
     delBtn.innerText = 'del'
-    delBtn.classList.add('main-del-btn')  
+    delBtn.classList.add('main-del-btn')
+    delBtn.setAttribute("data-task-index", id) 
 
     btnWrapper.appendChild(editBtn)
     btnWrapper.appendChild(delBtn)
