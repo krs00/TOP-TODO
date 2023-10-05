@@ -1,7 +1,8 @@
 import {updateCurrentProject, getCurrentProject} from "./modules/utils/projectManager";
  
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns } from "./DOM";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM } from "./DOM";
 import { localStorageInit } from "./modules/utils/localStorage";
+import { removeTask } from "./modules/utils/taskManager";
 
 const addProjectBtn = document.querySelector('#add-project-btn')
 const closeProjectBtn = document.querySelector('#close-project-btn')
@@ -42,10 +43,21 @@ const handleProjectClick = (e) => {
     }
 }
 
+document.body.addEventListener('click', handleProjectClick)
+
+const handleTaskDelBtn = (e) => {
+    const element = e.target
+
+    if (element.classList.contains('main-del-btn')) {
+        const indexString = element.getAttribute('data-task-index')
+        const index = parseInt(indexString)
+        removeTaskDOM(index) 
+    }
+}
+
+document.body.addEventListener('click', handleTaskDelBtn) 
 
 // TESTING FUNCTIONS!!
-
-document.body.addEventListener('click', handleProjectClick) 
 
 // for testing purposes view clicked project in console
 document.body.addEventListener('click', (e) => {
@@ -53,8 +65,8 @@ document.body.addEventListener('click', (e) => {
     const obj = getCurrentProject()
     // console.log(obj)
     // console.log(`~~ current project ~~\ntitle: ${obj.title}\ndescription: ${obj.description}\nid: ${obj.id}`)
-
 })
+
 
 
 
