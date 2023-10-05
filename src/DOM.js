@@ -1,7 +1,7 @@
 import { projectFactory } from "./modules/utils/projectFactory"
 import { addNewProject, getCurrentProjectId, getNewProjectId, getCurrentProject, getProjectsArray} from "./modules/utils/projectManager"
 import { projectBox } from "./modules/components/projectBox"
-import { addNewTask, getNewTaskId, getTasksArray } from "./modules/utils/taskManager"
+import { addNewTask, getNewTaskId, getTasksArray, removeTask } from "./modules/utils/taskManager"
 import { taskFactory } from "./modules/utils/taskFactory"
 import { taskBox } from "./modules/components/taskBox"
 
@@ -100,23 +100,6 @@ export function submitTaskModal() {
   closeTaskModal() 
 }
 
-export function populateTaskItems() {
-
-  const taskArray = getTasksArray()
-  for (let i = 0; i < taskArray.length; i++) {
-
-    const obj = taskArray[i]
-
-    if (getCurrentProjectId() === 0) {
-      taskBox(obj.id, obj.title, obj.description, obj.dueDate)}
-
-    else if (obj.projectId === getCurrentProjectId()) {
-      taskBox(obj.id, obj.title, obj.description, obj.dueDate)
-    }
-    
-  }
-}
-
 // TASK MODAL FUNCTIONS END
 
 
@@ -140,6 +123,47 @@ export function updateMainHeader() {
 export function clearMainTaskList() {
   const taskList = document.querySelector('#task-list')
   taskList.innerHTML = "" 
+}
+
+export function populateTaskItems() {
+
+  const taskArray = getTasksArray()
+  for (let i = 0; i < taskArray.length; i++) {
+
+    const obj = taskArray[i]
+
+    if (getCurrentProjectId() === 0) {
+      taskBox(obj.id, obj.title, obj.description, obj.dueDate)}
+
+    else if (obj.projectId === getCurrentProjectId()) {
+      taskBox(obj.id, obj.title, obj.description, obj.dueDate)
+    }
+    
+  }
+}
+
+export function removeTaskDOM(index) {
+  // removes deleted task data
+  removeTask(index)
+
+  // removes taskBox from task-list DOM
+  const taskList = document.querySelector('#task-list')
+  const elements = taskList.children
+
+  for (let i = 0; i < elements.length; i++) {
+    const taskBox = elements[i]
+
+    const data = taskBox.getAttribute('data-task-index')
+    const dataNum = parseInt(data)
+
+    if (dataNum === index) {
+      taskBox.remove()
+    }
+
+
+  }
+
+
 }
 
 
