@@ -1,6 +1,6 @@
 # To-do List
 
-#### A To-do list for tracking your task!
+#### A To-do list for tracking your tasks! 
 
 ## Live Demo
  
