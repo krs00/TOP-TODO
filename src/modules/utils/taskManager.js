@@ -1,9 +1,3 @@
-// const taskManager = {
-//   taskIdCounter: 0,
-//   taskArray: [],
-//   currentTask: null,
-// };
-
 export const getTasksArray = () => {
   const tasksArrayString = localStorage.getItem("tasksArray");
   const tasksArray = JSON.parse(tasksArrayString);
