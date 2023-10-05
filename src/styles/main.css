@@ -137,7 +137,7 @@ body {
   border-radius: 0 0 5px 0;
   background-color: #facff0;
   padding-left: 40px;
-  padding-right: 50px;
+  padding-right: 40px;
   padding-top: 20px;
 }
 
@@ -196,7 +196,7 @@ body {
   outline: none;
   color: #2a4482;
   background-color: #7c9eec;
-  border: none;
+  border: none; 
   border-radius: 25px; 
   box-shadow: 0px 10px #2a4482;
   letter-spacing: 3px;
@@ -322,6 +322,37 @@ body {
   transform: translateY(4px);
 }
 
+.popup-btn-red {
+  font-size: 25px;
+  width: 150px;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #6c0000;
+  background-color: #ff9191;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px #6c0000;;
+  letter-spacing: 2px;
+  margin-left: 20px;
+  margin-right: 20px
+}
+
+/* color: #6c0000;
+background-color: #ff9191;
+background-color: #ffb3b3; */
+
+.popup-btn-red:hover {background-color: #ffb3b3;}
+
+.popup-btn-red:active {
+  background-color: #ffb3b3;
+  box-shadow: 0 5px #6c0000;
+  transform: translateY(4px);
+}
+
 .popup-text {
   color: #2a4482;
   font-size: 40px;
@@ -381,6 +412,47 @@ body {
   margin-top: 15px;
 }
 
+
+/* confirm delete modal section */
+
+#confirm-del-modal {
+  display: none; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+#confirm-del-body {
+  border-radius: 5px;
+  background-color: #4976d1;
+  height: 500px;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+}
+
+.confirm-modal-content {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.confirm-btn-section {
+  margin-top: 25px;
+}
+
+
+
+
+
+/* confirm delete modal section end */
+
+
+
+
 /* main content task div styles!! */
 
 .main-task-item {
@@ -390,12 +462,12 @@ body {
   padding: 15px;
   cursor: pointer;
   text-decoration: none;
-  outline: none;
+  /* outline: 5px solid black; */
   color: #2a4482;
   background-color: #fcfafc;
-  border: none;
+  /* border: 3px black; */
   border-radius: 25px;
-  box-shadow: 0px 8px #2a4482;
+  box-shadow: 5px 5px #2a4482;
   letter-spacing: 1px;
   margin-top: 20px;
   /* margin-bottom: 20px; */
