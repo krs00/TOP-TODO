@@ -1,7 +1,7 @@
 import { projectFactory } from "./modules/utils/projectFactory"
-import { addNewProject, getCurrentProjectId, getNewProjectId, getCurrentProject, getProjectsArray} from "./modules/utils/projectManager"
+import { addNewProject, getCurrentProjectId, getNewProjectId, getCurrentProject, getProjectsArray, removeProject, updateCurrentProject} from "./modules/utils/projectManager"
 import { projectBox } from "./modules/components/projectBox"
-import { addNewTask, getNewTaskId, getTasksArray, removeTask } from "./modules/utils/taskManager"
+import { addNewTask, getNewTaskId, getTasksArray, removeAllTasks, removeTask } from "./modules/utils/taskManager"
 import { taskFactory } from "./modules/utils/taskFactory"
 import { taskBox } from "./modules/components/taskBox"
 
@@ -102,6 +102,74 @@ export function submitTaskModal() {
 
 // TASK MODAL FUNCTIONS END
 
+// CONFIRM DELETE MODAL FUNCTIONS
+
+export function openConfirmDelModal() {
+  openOverlay()
+
+  const project = getCurrentProject()
+  const projName = document.querySelector('#confirm-name')
+  const projName2 = document.querySelector('#confirm-name2')
+
+  projName.innerText = project.title
+  projName2.innerText = project.title
+
+  const modal = document.querySelector('#confirm-del-modal')
+  modal.style.display = 'block'
+}
+
+export function closeConfirmDelModal() {
+
+  const projName = document.querySelector('#confirm-name')
+  projName.innerText = ""
+
+  const modal = document.querySelector('#confirm-del-modal')
+  modal.style.display = 'none'
+ 
+  closeOverlay()
+}
+
+export function submitConfirmDelModal() {
+    const currentId = getCurrentProjectId()
+    removeProjectDOM(currentId) 
+
+    // WIP WIP WIP WIP WIP THIS IS NOT CORRECT ALWAYS NEED TO FIGURE OUT A WAY TO UPDATE THIS
+    const nextId = currentId - 1
+
+    removeAllTasks(currentId) 
+    updateCurrentProject(nextId)
+    updateMainHeader()
+    clearMainTaskList() 
+    populateTaskItems() 
+ 
+     
+    closeConfirmDelModal()
+
+
+}
+
+export function removeProjectDOM(index) {
+  // removes deleted project data
+  removeProject(index)
+
+  // removes projectBox from project-list DOM
+  const projectList = document.querySelector('#new-projects-container')
+  const elements = projectList.children
+
+  for (let i = 0; i < elements.length; i++) {
+    const projectBox = elements[i]
+
+    const data = projectBox.getAttribute('data-project-index') 
+    const dataNum = parseInt(data)
+
+    if (dataNum === index) {
+      projectBox.remove()
+    }
+  }
+}
+
+// CONFIRM DELETE MODAL FUNCTIONS END 
+
 
 // MAIN CONTENT FUNCTIONS --
 
@@ -159,13 +227,8 @@ export function removeTaskDOM(index) {
     if (dataNum === index) {
       taskBox.remove()
     }
-
-
   }
-
-
 }
-
 
 // MAIN CONTENT FUNCTIONS END --
 

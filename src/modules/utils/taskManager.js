@@ -79,6 +79,16 @@ export const updateCurrentTask = (id) => {
   }
 }
 
+// removes all tasks associated with a project id
+export const removeAllTasks = (id) => {
+  const tasksArray = getTasksArray()
+
+  const newArray = tasksArray.filter(item => item.projectId !== id);
+
+  saveTasksArray(newArray)
+
+};
+
 export const getCurrentTask = () => {
   const currentTaskString = localStorage.getItem("currentTask")
   const currentTask = JSON.parse(currentTaskString)

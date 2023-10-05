@@ -1,6 +1,6 @@
 import {updateCurrentProject, getCurrentProject} from "./modules/utils/projectManager";
  
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM } from "./DOM";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal } from "./DOM";
 import { localStorageInit } from "./modules/utils/localStorage";
 import { removeTask } from "./modules/utils/taskManager";
 
@@ -12,6 +12,10 @@ const addTaskBtn = document.querySelector('#add-task-btn')
 const closeTaskBtn = document.querySelector('#close-task-btn')
 const submitTaskBtn = document.querySelector('#submit-task-btn')
 
+const confirmDelBtn = document.querySelector('#del-project-btn')
+const closeConfirmDelBtn = document.querySelector('#close-confirm-btn') 
+const submitConfirmDel = document.querySelector('#submit-confirm-btn')
+
 addTaskBtn.addEventListener('click', openTaskModal)
 closeTaskBtn.addEventListener('click', closeTaskModal)
 submitTaskBtn.addEventListener('click', submitTaskModal)
@@ -19,6 +23,11 @@ submitTaskBtn.addEventListener('click', submitTaskModal)
 addProjectBtn.addEventListener('click', openProjectModal)
 closeProjectBtn.addEventListener('click', closeProjectModal)
 submitProjectBtn.addEventListener('click', submitProjectModal)
+
+confirmDelBtn.addEventListener('click', openConfirmDelModal)
+closeConfirmDelBtn.addEventListener('click', closeConfirmDelModal)
+submitConfirmDel.addEventListener('click', submitConfirmDelModal)
+
 
 // Initializes storage
 localStorageInit() 
