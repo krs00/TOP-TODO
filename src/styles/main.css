@@ -188,7 +188,7 @@ body {
 #edit-project-btn {
   font-size: 20px;
   width: auto;
-  display: inline-block;
+  display: none; 
   padding: 10px 10px;
   cursor: pointer;
   text-align: center;
@@ -218,7 +218,7 @@ body {
 #del-project-btn {
   font-size: 20px;
   width: auto;
-  display: inline-block;
+  display: none;
   padding: 10px 10px;
   cursor: pointer;
   text-align: center;
