@@ -1,9 +1,10 @@
 import { projectFactory } from "./modules/utils/projectFactory"
-import { addNewProject, getCurrentProjectId, getNewProjectId, getCurrentProject, getProjectsArray, removeProject, updateCurrentProject} from "./modules/utils/projectManager"
+import { addNewProject, getCurrentProjectId, getNewProjectId, getCurrentProject, getProjectsArray, removeProject, updateCurrentProject, updateProjectInfo} from "./modules/utils/projectManager"
 import { projectBox } from "./modules/components/projectBox"
 import { addNewTask, getNewTaskId, getTasksArray, removeAllTasks, removeTask } from "./modules/utils/taskManager"
 import { taskFactory } from "./modules/utils/taskFactory"
 import { taskBox } from "./modules/components/taskBox"
+import { getIsEditing, toggleEditingFalse, toggleEditingTrue } from "./modules/utils/isEditing"
 
 function openOverlay() {
   const overlay = document.querySelector('#overlay')
@@ -26,7 +27,12 @@ export function openProjectModal() {
 
 export function closeProjectModal() {
   closeOverlay()
-  clearProjectModalInputs()
+  clearProjectModalInputs() 
+  toggleEditingFalse()
+
+  const title = document.querySelector('#project-modal-title')
+  title.innerText = `*ੈ✩‧₊˚ add a project! ஃ` 
+
   const modal = document.querySelector('#add-project-modal')
   modal.style.display = 'none'
 }
@@ -41,20 +47,73 @@ function clearProjectModalInputs() {
 }
 
 export function submitProjectModal() {
+  if (getIsEditing() === false) {
+    submitAddProject() 
+  } else if (getIsEditing() === true) {
+    submitEditProject()
+  }
+}
+
+function submitAddProject() {
   const projectName = document.querySelector('#project-name-input').value
   const projectDescription = document.querySelector('#project-description-input').value
 
-  // console.log(projectName)
-  // console.log(projectDescription)
   const newId = getNewProjectId()
 
   const newProject = projectFactory(newId, projectName, projectDescription)
   projectBox(newId, projectName)
-  addNewProject(newProject) 
+  addNewProject(newProject)
 
-  clearProjectModalInputs()
   closeProjectModal() 
+}
 
+function submitEditProject() {
+  const obj = getCurrentProject()
+
+  const projectName = document.querySelector('#project-name-input').value
+  const projectDescription = document.querySelector('#project-description-input').value
+
+  const title = document.querySelector('#content-project-name')
+  const desc = document.querySelector('#content-project-description')
+
+  title.innerText = projectName
+  desc.innerText = projectDescription
+
+
+  // update DOM element in projects list
+  const projectList = document.querySelector('#new-projects-container')
+  const elements = Array.from(projectList.children);
+  
+  for (let i = 0; i < elements.length; i++) {
+    const element = elements[i] 
+    const elementDataIndex = element.getAttribute('data-project-index')
+    const elementDataIndexNum = parseInt(elementDataIndex)
+
+    if (elementDataIndexNum === obj.id) {
+      element.innerText = projectName
+    }
+  }
+
+  updateProjectInfo(obj.id, projectName, projectDescription) 
+  closeProjectModal()
+}
+
+export function openEditProjectModal() {
+
+  toggleEditingTrue()
+
+  const obj = getCurrentProject()
+
+  const nameInput = document.querySelector('#project-name-input')
+  const descInput = document.querySelector('#project-description-input')
+  const title = document.querySelector('#project-modal-title')
+  title.innerText = `*ੈ✩‧₊˚ edit ${obj.title}! ஃ`
+
+  nameInput.value = obj.title
+  descInput.value = obj.description
+
+
+  openProjectModal()
 }
 
 // PROJECT MODAL FUNCTIONS END
@@ -72,6 +131,7 @@ export function closeTaskModal() {
   const modal = document.querySelector('#add-task-modal')
   modal.style.display = 'none'
   clearTaskModalInputs()
+  toggleEditingFalse() 
 }
 
 function clearTaskModalInputs() {
@@ -155,7 +215,6 @@ export function findNextId(currentId) {
     const elementDataIndexNum = parseInt(elementDataIndex)
 
     if (elementDataIndexNum === currentId) {
-      console.log(element)
       const index = elements.indexOf(element)
       const newIndex = index - 1
       return newIndex 
@@ -193,7 +252,6 @@ export function removeProjectDOM(index) {
 export function updateMainHeader() {
 
   const obj = getCurrentProject()
-  // console.log(`current is ${obj.title}`)
 
   const title = document.querySelector('#content-project-name')
   const desc = document.querySelector('#content-project-description')
