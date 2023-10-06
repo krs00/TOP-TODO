@@ -145,7 +145,21 @@ function clearTaskModalInputs() {
 
 }
 
+// WIP WIP WIP WIP WIP working on submitting task modal!!!
+
 export function submitTaskModal() {
+
+  const editing = getIsEditing()
+
+  if (editing === false) {
+    submitAddTask()
+  } else if (editing === true) {
+
+  }
+
+}
+
+function submitAddTask() {
   const taskName = document.querySelector('#task-name-input').value
   const taskDescription = document.querySelector('#task-description-input').value
   const taskDate = document.querySelector('#task-date-input').value
