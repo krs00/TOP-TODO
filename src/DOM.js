@@ -267,6 +267,26 @@ export function populateSideBarBtns() {
 }
 
 
+// function to check if edit and delte buttons should show for projects
+// edit and delete should not be visible on "All Tasks" project
+
+export function toggleMenuBtns() {
+
+  const currentId = getCurrentProjectId()
+
+  const editBtn = document.querySelector("#edit-project-btn")
+  const delBtn = document.querySelector("#del-project-btn")
+
+  if (currentId === 0) {
+    editBtn.style.display = "none";
+    delBtn.style.display = "none";
+  } else {
+    editBtn.style.display = "inline-block"; 
+    delBtn.style.display = "inline-block";
+  }
+}
+
+
 
 
 

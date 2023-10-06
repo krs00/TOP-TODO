@@ -1,6 +1,6 @@
 import {updateCurrentProject, getCurrentProject} from "./modules/utils/projectManager";
  
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal } from "./DOM";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal, toggleMenuBtns } from "./DOM";
 import { localStorageInit } from "./modules/utils/localStorage";
 import { removeTask } from "./modules/utils/taskManager";
 
@@ -33,7 +33,8 @@ submitConfirmDel.addEventListener('click', submitConfirmDelModal)
 localStorageInit() 
 // updateCurrentProject(0) don't add this back in it will ruin persistance!!!
 // Also it's already being called though localStorageInit() 
-updateMainHeader() 
+updateMainHeader()
+toggleMenuBtns()
 populateSideBarBtns()
 populateTaskItems()
 
@@ -45,6 +46,7 @@ const handleProjectClick = (e) => {
     if (element.hasAttribute('data-project-index')) {
         const value = element.getAttribute('data-project-index')
         updateCurrentProject(value)
+        toggleMenuBtns() 
         updateMainHeader()
         clearMainTaskList()
         populateTaskItems()
