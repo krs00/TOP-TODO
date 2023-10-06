@@ -138,7 +138,8 @@ export function submitConfirmDelModal() {
     updateCurrentProject(nextId)
     updateMainHeader()
     clearMainTaskList() 
-    populateTaskItems() 
+    populateTaskItems()
+    toggleMenuBtns()
  
      
     closeConfirmDelModal()
