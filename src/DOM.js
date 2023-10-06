@@ -131,10 +131,8 @@ export function closeConfirmDelModal() {
 
 export function submitConfirmDelModal() {
     const currentId = getCurrentProjectId()
+    const nextId = findNextId(currentId)
     removeProjectDOM(currentId) 
-
-    // WIP WIP WIP WIP WIP THIS IS NOT CORRECT ALWAYS NEED TO FIGURE OUT A WAY TO UPDATE THIS
-    const nextId = currentId - 1
 
     removeAllTasks(currentId) 
     updateCurrentProject(nextId)
@@ -144,8 +142,24 @@ export function submitConfirmDelModal() {
  
      
     closeConfirmDelModal()
+}
 
+export function findNextId(currentId) {
+  const projectList = document.querySelector('#new-projects-container')
+  const elements = Array.from(projectList.children);
+  
+  for (let i = 0; i < elements.length; i++) {
+    const element = elements[i] 
+    const elementDataIndex = element.getAttribute('data-project-index')
+    const elementDataIndexNum = parseInt(elementDataIndex)
 
+    if (elementDataIndexNum === currentId) {
+      console.log(element)
+      const index = elements.indexOf(element)
+      const newIndex = index - 1
+      return newIndex 
+    }
+  }
 }
 
 export function removeProjectDOM(index) {
