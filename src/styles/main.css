@@ -73,6 +73,10 @@ body {
   padding-top: 20px;
 }
 
+#sidebar-wrapper {
+  width: 100%;
+}
+
 .sidebar-btn {
   font-size: 25px;
   width: 100%;
