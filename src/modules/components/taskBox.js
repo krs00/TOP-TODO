@@ -29,17 +29,20 @@ export function taskBox(id, title, description, dueDate) {
      // main title
     const mainTitle = document.createElement('p')
     mainTitle.classList.add('main-task-title')
+    mainTitle.setAttribute('id', `task-title-${id}`)
     mainTitle.innerText = title
     taskBody.appendChild(mainTitle)
 
     // duetext
     const duetext = document.createElement('p')
     duetext.innerText = `due date: ${dueDate}`
+    duetext.setAttribute('id', `task-due-${id}`) 
     taskBody.appendChild(duetext)
 
-    // main title
+    // description
     const descText = document.createElement('p')
     descText.innerText = description
+    descText.setAttribute('id', `task-desc-${id}`)
     taskBody.appendChild(descText) 
 
     const container = document.querySelector('#task-list')
