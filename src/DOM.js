@@ -17,6 +17,9 @@ import {
   getTasksArray,
   removeAllTasks,
   removeTask,
+  resetCurrentTaskId,
+  updateTaskInfo,
+  getCurrentTaskId
 } from "./modules/utils/taskManager";
 import { taskFactory } from "./modules/utils/taskFactory";
 import { taskBox } from "./modules/components/taskBox";
@@ -155,6 +158,7 @@ export function closeTaskModal() {
   title.innerText = "*✩‧₊˚ add a task! ✩ஃ";
   clearTaskModalInputs();
   toggleEditingFalse();
+  resetCurrentTaskId() 
 }
 
 function clearTaskModalInputs() {
@@ -217,13 +221,26 @@ function submitAddTask() {
 }
 
 function submitEditTask() {
+
+  const currentId = getCurrentTaskId()
+  const currentIdStr = currentId.toString()
+
   const taskName = document.querySelector("#task-name-input").value;
-  const taskDescription = document.querySelector(
-    "#task-description-input"
-  ).value;
+  const taskDescription = document.querySelector("#task-description-input").value;
   const taskDate = document.querySelector("#task-date-input").value;
 
-  closeTaskModal();
+  const taskNameDOM = document.querySelector(`#task-title-${currentIdStr}`)
+  const taskDescDOM = document.querySelector(`#task-desc-${currentIdStr}`)
+  const taskDateDOM = document.querySelector(`#task-date-${currentIdStr}`)
+
+  taskNameDOM.innerText = taskName
+  taskDescDOM.innerText = taskDescription
+  taskDateDOM.innerText = `due date: ${taskDate}`
+
+  updateTaskInfo(currentId, taskName, taskDescription, taskDate)
+
+  closeTaskModal() 
+  resetCurrentTaskId()
 }
 
 // TASK MODAL FUNCTIONS END

@@ -1,8 +1,7 @@
-import {updateCurrentProject, getCurrentProject} from "./modules/utils/projectManager";
- 
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal, toggleMenuBtns, openEditProjectModal } from "./DOM";
+import {updateCurrentProject} from "./modules/utils/projectManager";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal, toggleMenuBtns, openEditProjectModal, openEditTaskModal } from "./DOM";
 import { localStorageInit} from "./modules/utils/localStorage";
-import { removeTask } from "./modules/utils/taskManager"; 
+import { getCurrentTaskId, updateCurrentTaskId } from "./modules/utils/taskManager"; 
 
 const addProjectBtn = document.querySelector('#add-project-btn')
 const closeProjectBtn = document.querySelector('#close-project-btn')
@@ -53,6 +52,8 @@ const handleProjectClick = (e) => {
     }
 }
 
+
+
 document.body.addEventListener('click', handleProjectClick)
 
 const handleTaskDelBtn = (e) => {
@@ -65,6 +66,20 @@ const handleTaskDelBtn = (e) => {
     }
 }
 
-document.body.addEventListener('click', handleTaskDelBtn) 
+document.body.addEventListener('click', handleTaskDelBtn)
+
+//
+
+const handleTaskEditBtn = (e) => {
+    const element = e.target
+
+    if (element.classList.contains('main-edit-btn')) {
+        const indexString = element.getAttribute('data-task-index')
+        const index = parseInt(indexString)
+        updateCurrentTaskId(index) 
+        openEditTaskModal(index) 
+}
+}
 
 
+document.body.addEventListener('click', handleTaskEditBtn)  
