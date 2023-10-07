@@ -29,6 +29,7 @@ confirmDelBtn.addEventListener('click', openConfirmDelModal)
 closeConfirmDelBtn.addEventListener('click', closeConfirmDelModal)
 submitConfirmDel.addEventListener('click', submitConfirmDelModal)
 
+console.log('hi')
 
 // Initializes storage
 // Initializes page
