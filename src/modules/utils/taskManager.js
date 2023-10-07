@@ -1,3 +1,18 @@
+let currentTaskId = null
+
+export function getCurrentTaskId() {
+  return currentTaskId
+}
+
+export function updateCurrentTaskId(id) {
+  currentTaskId = id
+}
+
+export function resetCurrentTaskId() {
+  currentTaskId = null
+}
+
+
 export const getTasksArray = () => {
   const tasksArrayString = localStorage.getItem("tasksArray");
   const tasksArray = JSON.parse(tasksArrayString);
@@ -6,7 +21,7 @@ export const getTasksArray = () => {
 };
 
 const saveTasksArray = (array) => {
- 
+
   localStorage.setItem("tasksArray", JSON.stringify(array));
 };
 
@@ -89,14 +104,17 @@ export const removeAllTasks = (id) => {
 
 };
 
-export const getCurrentTask = () => {
-  const currentTaskString = localStorage.getItem("currentTask")
-  const currentTask = JSON.parse(currentTaskString)
-  return currentTask
-}
+export const getCurrentTask = (id) => {
+  const arrayJson = localStorage.getItem("tasksArray")
+  const array = JSON.parse(arrayJson)
 
-export const getCurrentTaskId = () => {
-  const currentTaskString = localStorage.getItem("currentTask")
-  const currentTask = JSON.parse(currentTaskString)
-  return currentTask.id
+  for (let i = 0; i < array.length; i++) {
+    const obj = array[i]
+
+    if (obj.id === id) {
+      return obj
+    }
+  }
+
+
 }
