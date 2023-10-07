@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
-// import { resolve } from 'path'; 
- 
-export default defineConfig({
-  root: './src', 
+// import { defineConfig } from 'vite';
+// // import { resolve } from 'path'; 
 
-});
+// export default defineConfig({
+//   root: './src', 
+
+// });
