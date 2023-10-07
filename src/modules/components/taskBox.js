@@ -36,7 +36,7 @@ export function taskBox(id, title, description, dueDate) {
     // duetext
     const duetext = document.createElement('p')
     duetext.innerText = `due date: ${dueDate}`
-    duetext.setAttribute('id', `task-due-${id}`) 
+    duetext.setAttribute('id', `task-date-${id}`) 
     taskBody.appendChild(duetext)
 
     // description
