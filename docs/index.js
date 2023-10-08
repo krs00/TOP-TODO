@@ -1,5 +1,5 @@
 import {updateCurrentProject} from "/TOP-TODO/docs/modules/utils/projectManager";
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal, toggleMenuBtns, openEditProjectModal, openEditTaskModal } from "/TOP-TODO/docs/DOM";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal, toggleMenuBtns, openEditProjectModal, openEditTaskModal } from "DOM";
 import { localStorageInit} from "/TOP-TODO/docs/modules/utils/localStorage";
 import { updateCurrentTaskId } from "/TOP-TODO/docs/modules/utils/taskManager"; 
 
