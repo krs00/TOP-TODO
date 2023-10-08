@@ -1,7 +1,7 @@
-import {updateCurrentProject} from "/TOP-TODO/src/modules/utils/projectManager";
-import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal, toggleMenuBtns, openEditProjectModal, openEditTaskModal } from "/TOP-TODO/src/DOM";
-import { localStorageInit} from "/TOP-TODO/src/modules/utils/localStorage";
-import { updateCurrentTaskId } from "/TOP-TODO/src/modules/utils/taskManager"; 
+import {updateCurrentProject} from "/src/modules/utils/projectManager";
+import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal, toggleMenuBtns, openEditProjectModal, openEditTaskModal } from "/src/DOM";
+import { localStorageInit} from "/src/modules/utils/localStorage";
+import { updateCurrentTaskId } from "/src/modules/utils/taskManager"; 
 
 const addProjectBtn = document.querySelector('#add-project-btn')
 const closeProjectBtn = document.querySelector('#close-project-btn')

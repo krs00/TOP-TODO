@@ -1,4 +1,4 @@
-import { projectFactory } from "/TOP-TODO/src/modules/utils/projectFactory";
+import { projectFactory } from "/src/modules/utils/projectFactory";
 import {
   addNewProject,
   getCurrentProjectId,
@@ -8,8 +8,8 @@ import {
   removeProject,
   updateCurrentProject,
   updateProjectInfo,
-} from "/TOP-TODO/src/modules/utils/projectManager";
-import { projectBox } from "/TOP-TODO/src/modules/components/projectBox";
+} from "/src/modules/utils/projectManager";
+import { projectBox } from "/src/modules/components/projectBox";
 import {
   addNewTask,
   getCurrentTask,
@@ -20,14 +20,14 @@ import {
   resetCurrentTaskId,
   updateTaskInfo,
   getCurrentTaskId
-} from "/TOP-TODO/src/modules/utils/taskManager";
-import { taskFactory } from "/TOP-TODO/src/modules/utils/taskFactory";
-import { taskBox } from "/TOP-TODO/src/modules/components/taskBox";
+} from "/src/modules/utils/taskManager";
+import { taskFactory } from "/src/modules/utils/taskFactory";
+import { taskBox } from "/src/modules/components/taskBox";
 import {
   getIsEditing,
   toggleEditingFalse,
   toggleEditingTrue,
-} from "/TOP-TODO/src/modules/utils/isEditing";
+} from "/src/modules/utils/isEditing";
 
 function openOverlay() {
   const overlay = document.querySelector("#overlay");
