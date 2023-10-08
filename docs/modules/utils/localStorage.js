@@ -1,5 +1,5 @@
-import { projectFactory } from "./projectFactory";
-import { updateCurrentProject } from "./projectManager";
+import { projectFactory } from "/modules/utils/projectFactory";
+import { updateCurrentProject } from "/modules/utils/projectManager";
 
 // These methods are for initializing localStorage!!
 

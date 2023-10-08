@@ -1,4 +1,4 @@
-import { projectFactory } from "./modules/utils/projectFactory";
+import { projectFactory } from "/modules/utils/projectFactory";
 import {
   addNewProject,
   getCurrentProjectId,
@@ -8,8 +8,8 @@ import {
   removeProject,
   updateCurrentProject,
   updateProjectInfo,
-} from "./modules/utils/projectManager";
-import { projectBox } from "./modules/components/projectBox";
+} from "/modules/utils/projectManager";
+import { projectBox } from "/modules/components/projectBox";
 import {
   addNewTask,
   getCurrentTask,
@@ -20,14 +20,14 @@ import {
   resetCurrentTaskId,
   updateTaskInfo,
   getCurrentTaskId
-} from "./modules/utils/taskManager";
-import { taskFactory } from "./modules/utils/taskFactory";
-import { taskBox } from "./modules/components/taskBox";
+} from "/modules/utils/taskManager";
+import { taskFactory } from "/modules/utils/taskFactory";
+import { taskBox } from "/modules/components/taskBox";
 import {
   getIsEditing,
   toggleEditingFalse,
   toggleEditingTrue,
-} from "./modules/utils/isEditing";
+} from "/modules/utils/isEditing";
 
 function openOverlay() {
   const overlay = document.querySelector("#overlay");
