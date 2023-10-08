@@ -1,5 +1,5 @@
-import { projectFactory } from "./projectFactory";
-import { updateCurrentProject } from "./projectManager";
+import { projectFactory } from "/TOP-TODO/src/modules/utils/projectFactory";
+import { updateCurrentProject } from "/TOP-TODO/src/modules/utils/projectManager";
 
 // These methods are for initializing localStorage!!
 
