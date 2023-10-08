@@ -1,5 +1,4 @@
-console.log('hi')
-import {updateCurrentProject} from "./modules/utils/projectManager"; 
+import {updateCurrentProject} from "./modules/utils/projectManager";
 import { openProjectModal, closeProjectModal, submitProjectModal, updateMainHeader, openTaskModal, closeTaskModal, clearMainTaskList, submitTaskModal, populateTaskItems, populateSideBarBtns, removeTaskDOM, openConfirmDelModal, closeConfirmDelModal, submitConfirmDelModal, toggleMenuBtns, openEditProjectModal, openEditTaskModal } from "./DOM";
 import { localStorageInit} from "./modules/utils/localStorage";
 import { updateCurrentTaskId } from "./modules/utils/taskManager"; 
@@ -71,8 +70,6 @@ const handleTaskDelBtn = (e) => {
 }
 
 document.body.addEventListener('click', handleTaskDelBtn)
-
-//
 
 const handleTaskEditBtn = (e) => {
     const element = e.target
